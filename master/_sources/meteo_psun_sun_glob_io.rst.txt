@@ -1,0 +1,12 @@
+.. |evap_pet_ambav1| replace:: :mod:`~hydpy.models.evap_pet_ambav1`
+.. |meteo_psun_sun_glob_io| replace:: :mod:`~hydpy.models.meteo_psun_sun_glob_io`
+
+.. _meteo_psun_sun_glob_io:
+
+meteo_psun_sun_glob_io
+======================
+
+.. automodule:: hydpy.models.meteo_psun_sun_glob_io
+    :members:
+    :show-inheritance:
+    :exclude-members: AsyncIterable, pars, Any, Callable, INLET_METHODS, ForwardRef, ParamSpec, SENDER_METHODS, Collection, Self, fastaccess_new, no_type_check_decorator, SupportsFloat, fastaccess, Awaitable, PART_ODE_METHODS, get_protocol_members, Generic, AideSequences, Annotated, TypeAliasType, get_original_bases, Counter, cast, RUN_METHODS, Text, Union, ReceiverSequences, FrozenSet, Doc, ByteString, AsyncGenerator, Tuple, SenderSequences, final, Never, SupportsAbs, Sized, ValuesView, Coroutine, Optional, no_type_check, Required, is_typeddict, FULL_ODE_METHODS, get_type_hints, Iterable, OrderedDict, assert_type, MutableMapping, Unpack, FactorSequences, Concatenate, seqs, Iterator, Container, deprecated, BinaryIO, Match, subvars, get_overloads, ChainMap, subpars, DERIVEDPARAMETERS, CONTROLPARAMETERS, subseqs, CLASSES, Hashable, runtime_checkable, Protocol, RESULTSEQUENCES, NamedTuple, is_protocol, StateSequences, overload, assert_never, ContextManager, LiteralString, reveal_type, Sequence, AnyStr, MutableSet, Buffer, SUBMODELINTERFACES, SupportsBytes, get_args, override, IO, ParamSpecArgs, IntVar, List, Dict, Deque, SUBMETHODS, Set, Literal, ReadOnly, MappingView, dataclass_transform, SupportsIndex, InletSequences, AsyncContextManager, ClassVar, Type, SOLVERSEQUENCES, NoReturn, AsyncIterator, fastaccess_old, NotRequired, ADD_METHODS, INTERFACE_METHODS, ItemsView, ParamSpecKwargs, SUBMODELS, AbstractSet, SupportsRound, Generator, OutletSequences, SOLVERPARAMETERS, Reversible, TypeVar, TextIO, TypeGuard, Final, LogSequences, RECEIVER_METHODS, Mapping, runtime, Pattern, NewType, SupportsInt, MutableSequence, SupportsComplex, KeysView, OUTLET_METHODS, TypeIs, FIXEDPARAMETERS, DefaultDict, clear_overloads, TypeAlias, REQUIREDSEQUENCES, FluxSequences, TYPE_CHECKING, UPDATEDSEQUENCES, TypedDict, get_origin, TypeVarTuple

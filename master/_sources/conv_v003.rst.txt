@@ -1,0 +1,17 @@
+.. |ActualConstant| replace:: :class:`~hydpy.models.conv.conv_fluxes.ActualConstant`
+.. |ActualFactor| replace:: :class:`~hydpy.models.conv.conv_fluxes.ActualFactor`
+.. |Heights| replace:: :class:`~hydpy.models.conv.conv_control.Heights`
+.. |Power| replace:: :class:`~hydpy.models.conv.conv_control.Power`
+.. |conv_v002| replace:: :mod:`~hydpy.models.conv_v002`
+.. |conv_v003| replace:: :mod:`~hydpy.models.conv_v003`
+.. |conv_fluxes.Inputs| replace:: :class:`~hydpy.models.conv.conv_fluxes.Inputs`
+
+.. _conv_v003:
+
+conv_v003
+=========
+
+.. automodule:: hydpy.models.conv_v003
+    :members:
+    :show-inheritance:
+    :exclude-members: AsyncIterable, pars, Any, Callable, INLET_METHODS, ForwardRef, ParamSpec, SENDER_METHODS, Collection, Self, fastaccess_new, no_type_check_decorator, SupportsFloat, fastaccess, Awaitable, PART_ODE_METHODS, get_protocol_members, Generic, AideSequences, Annotated, TypeAliasType, get_original_bases, Counter, cast, RUN_METHODS, Text, Union, ReceiverSequences, FrozenSet, Doc, ByteString, AsyncGenerator, Tuple, SenderSequences, final, Never, SupportsAbs, Sized, ValuesView, Coroutine, Optional, no_type_check, Required, is_typeddict, FULL_ODE_METHODS, get_type_hints, Iterable, OrderedDict, assert_type, MutableMapping, Unpack, FactorSequences, Concatenate, seqs, Iterator, Container, deprecated, BinaryIO, Match, subvars, get_overloads, ChainMap, subpars, DERIVEDPARAMETERS, CONTROLPARAMETERS, subseqs, CLASSES, Hashable, runtime_checkable, Protocol, RESULTSEQUENCES, NamedTuple, is_protocol, StateSequences, overload, assert_never, ContextManager, LiteralString, reveal_type, Sequence, AnyStr, MutableSet, Buffer, SUBMODELINTERFACES, SupportsBytes, get_args, override, IO, ParamSpecArgs, IntVar, List, Dict, Deque, SUBMETHODS, Set, Literal, ReadOnly, MappingView, dataclass_transform, SupportsIndex, AsyncContextManager, ClassVar, Type, SOLVERSEQUENCES, NoReturn, AsyncIterator, fastaccess_old, NotRequired, ADD_METHODS, INTERFACE_METHODS, ItemsView, ParamSpecKwargs, SUBMODELS, AbstractSet, SupportsRound, Generator, SOLVERPARAMETERS, Reversible, TypeVar, TextIO, TypeGuard, Final, LogSequences, RECEIVER_METHODS, Mapping, runtime, Pattern, NewType, SupportsInt, MutableSequence, SupportsComplex, KeysView, OUTLET_METHODS, TypeIs, FIXEDPARAMETERS, DefaultDict, clear_overloads, InputSequences, TypeAlias, REQUIREDSEQUENCES, TYPE_CHECKING, UPDATEDSEQUENCES, TypedDict, get_origin, TypeVarTuple

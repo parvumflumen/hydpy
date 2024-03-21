@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>q &#8212; HydPy 6.0a0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=127cebf3" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+    
+    <script src="_static/documentation_options.js?v=38d55880"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"chtml": {"displayAlign": "left"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="q_walrus" href="q_walrus.html" />
+    <link rel="prev" title="HydPy-Q" href="HydPy-Q.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="q_walrus.html" title="q_walrus"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="HydPy-Q.html" title="HydPy-Q"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">HydPy 6.0a0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modelcollection.html" >Model Collection</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="HydPy-Q.html" accesskey="U">HydPy-Q</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">q</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/HydPy_Logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to.html">How to…</a></li>
+<li class="toctree-l1"><a class="reference internal" href="framework.html">Framework Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modelcollection.html">Model Collection</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="HydPy-A.html">HydPy-A (RIMO/RIDO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HydPy-C.html">HydPy-C (Conv)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HydPy-Exch.html">HydPy-Exch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HydPy-Evap.html">HydPy-Evap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HydPy-Dam.html">HydPy-Dam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HydPy-Dummy.html">HydPy-Dummy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HydPy-GA.html">HydPy-GA (Green-Ampt)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HydPy-H.html">HydPy-H (HBV)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HydPy-L.html">HydPy-L (LARSIM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HydPy-Meteo.html">HydPy-Meteo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HydPy-Musk.html">HydPy-Musk (Muskingum)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HydPy-SW1D.html">HydPy-SW1D (Shallow Water 1D)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HydPy-T.html">HydPy-T (TESTING)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HydPy-W.html">HydPy-W (WALRUS)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="HydPy-Q.html">HydPy-Q</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">q</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#method-features">Method Features</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#hydpy.models.q.q_model.Model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_model.Model.REUSABLE_METHODS"><code class="docutils literal notranslate"><span class="pre">Model.REUSABLE_METHODS</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#hydpy.models.q.q_model.Calculate_Discharge_V1"><code class="docutils literal notranslate"><span class="pre">Calculate_Discharge_V1</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#hydpy.models.q.q_model.Base_DischargeModel_V2"><code class="docutils literal notranslate"><span class="pre">Base_DischargeModel_V2</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.prepare_channeldepth"><code class="docutils literal notranslate"><span class="pre">Base_DischargeModel_V2.prepare_channeldepth</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.prepare_tolerance"><code class="docutils literal notranslate"><span class="pre">Base_DischargeModel_V2.prepare_tolerance</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.REUSABLE_METHODS"><code class="docutils literal notranslate"><span class="pre">Base_DischargeModel_V2.REUSABLE_METHODS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.preparemethod2arguments"><code class="docutils literal notranslate"><span class="pre">Base_DischargeModel_V2.preparemethod2arguments</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.cymodel"><code class="docutils literal notranslate"><span class="pre">Base_DischargeModel_V2.cymodel</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.parameters"><code class="docutils literal notranslate"><span class="pre">Base_DischargeModel_V2.parameters</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.sequences"><code class="docutils literal notranslate"><span class="pre">Base_DischargeModel_V2.sequences</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.masks"><code class="docutils literal notranslate"><span class="pre">Base_DischargeModel_V2.masks</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.METHOD_GROUPS"><code class="docutils literal notranslate"><span class="pre">Base_DischargeModel_V2.METHOD_GROUPS</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#parameter-features">Parameter Features</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#control-parameters">Control parameters</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_control.ChannelDepth"><code class="docutils literal notranslate"><span class="pre">ChannelDepth</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.ChannelDepth.NDIM"><code class="docutils literal notranslate"><span class="pre">ChannelDepth.NDIM</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.ChannelDepth.TYPE"><code class="docutils literal notranslate"><span class="pre">ChannelDepth.TYPE</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.ChannelDepth.TIME"><code class="docutils literal notranslate"><span class="pre">ChannelDepth.TIME</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.ChannelDepth.SPAN"><code class="docutils literal notranslate"><span class="pre">ChannelDepth.SPAN</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.ChannelDepth.name"><code class="docutils literal notranslate"><span class="pre">ChannelDepth.name</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.ChannelDepth.unit"><code class="docutils literal notranslate"><span class="pre">ChannelDepth.unit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeight"><code class="docutils literal notranslate"><span class="pre">CrestHeight</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeight.NDIM"><code class="docutils literal notranslate"><span class="pre">CrestHeight.NDIM</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeight.TYPE"><code class="docutils literal notranslate"><span class="pre">CrestHeight.TYPE</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeight.TIME"><code class="docutils literal notranslate"><span class="pre">CrestHeight.TIME</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeight.SPAN"><code class="docutils literal notranslate"><span class="pre">CrestHeight.SPAN</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeight.name"><code class="docutils literal notranslate"><span class="pre">CrestHeight.name</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeight.unit"><code class="docutils literal notranslate"><span class="pre">CrestHeight.unit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeightTolerance"><code class="docutils literal notranslate"><span class="pre">CrestHeightTolerance</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeightTolerance.NDIM"><code class="docutils literal notranslate"><span class="pre">CrestHeightTolerance.NDIM</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeightTolerance.TYPE"><code class="docutils literal notranslate"><span class="pre">CrestHeightTolerance.TYPE</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeightTolerance.TIME"><code class="docutils literal notranslate"><span class="pre">CrestHeightTolerance.TIME</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeightTolerance.SPAN"><code class="docutils literal notranslate"><span class="pre">CrestHeightTolerance.SPAN</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeightTolerance.name"><code class="docutils literal notranslate"><span class="pre">CrestHeightTolerance.name</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeightTolerance.unit"><code class="docutils literal notranslate"><span class="pre">CrestHeightTolerance.unit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_control.BankfullDischarge"><code class="docutils literal notranslate"><span class="pre">BankfullDischarge</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.BankfullDischarge.NDIM"><code class="docutils literal notranslate"><span class="pre">BankfullDischarge.NDIM</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.BankfullDischarge.TYPE"><code class="docutils literal notranslate"><span class="pre">BankfullDischarge.TYPE</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.BankfullDischarge.TIME"><code class="docutils literal notranslate"><span class="pre">BankfullDischarge.TIME</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.BankfullDischarge.SPAN"><code class="docutils literal notranslate"><span class="pre">BankfullDischarge.SPAN</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.BankfullDischarge.name"><code class="docutils literal notranslate"><span class="pre">BankfullDischarge.name</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.BankfullDischarge.unit"><code class="docutils literal notranslate"><span class="pre">BankfullDischarge.unit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_control.DischargeExponent"><code class="docutils literal notranslate"><span class="pre">DischargeExponent</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.DischargeExponent.NDIM"><code class="docutils literal notranslate"><span class="pre">DischargeExponent.NDIM</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.DischargeExponent.TYPE"><code class="docutils literal notranslate"><span class="pre">DischargeExponent.TYPE</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.DischargeExponent.TIME"><code class="docutils literal notranslate"><span class="pre">DischargeExponent.TIME</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.DischargeExponent.SPAN"><code class="docutils literal notranslate"><span class="pre">DischargeExponent.SPAN</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.DischargeExponent.INIT"><code class="docutils literal notranslate"><span class="pre">DischargeExponent.INIT</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.DischargeExponent.name"><code class="docutils literal notranslate"><span class="pre">DischargeExponent.name</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_control.DischargeExponent.unit"><code class="docutils literal notranslate"><span class="pre">DischargeExponent.unit</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#derived-parameters">Derived parameters</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#hydpy.models.q.q_derived.CrestHeightRegularisation"><code class="docutils literal notranslate"><span class="pre">CrestHeightRegularisation</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_derived.CrestHeightRegularisation.NDIM"><code class="docutils literal notranslate"><span class="pre">CrestHeightRegularisation.NDIM</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_derived.CrestHeightRegularisation.TYPE"><code class="docutils literal notranslate"><span class="pre">CrestHeightRegularisation.TYPE</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_derived.CrestHeightRegularisation.TIME"><code class="docutils literal notranslate"><span class="pre">CrestHeightRegularisation.TIME</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_derived.CrestHeightRegularisation.SPAN"><code class="docutils literal notranslate"><span class="pre">CrestHeightRegularisation.SPAN</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_derived.CrestHeightRegularisation.update"><code class="docutils literal notranslate"><span class="pre">CrestHeightRegularisation.update()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_derived.CrestHeightRegularisation.name"><code class="docutils literal notranslate"><span class="pre">CrestHeightRegularisation.name</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#hydpy.models.q.q_derived.CrestHeightRegularisation.unit"><code class="docutils literal notranslate"><span class="pre">CrestHeightRegularisation.unit</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#hydpy.models.q.ControlParameters"><code class="docutils literal notranslate"><span class="pre">ControlParameters</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hydpy.models.q.DerivedParameters"><code class="docutils literal notranslate"><span class="pre">DerivedParameters</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="q_walrus.html">Q-WALRUS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Submodel Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Example Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zbibliography.html">Bibliography</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="HydPy-Q.html"
+                          title="previous chapter">HydPy-Q</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="q_walrus.html"
+                          title="next chapter">q_walrus</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/q.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="q">
+<span id="id1"></span><h1>q<a class="headerlink" href="#q" title="Link to this heading">¶</a></h1>
+<p id="module-hydpy.models.q">The <cite>HydPy-Q</cite> base model provides features to implement small function-like
+submodels for calculating discharge based on information like the current water level.</p>
+<section id="method-features">
+<h2>Method Features<a class="headerlink" href="#method-features" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hydpy.models.q.q_model.Model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hydpy.models.q.q_model.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><a class="reference internal" href="_modules/hydpy/models/q/q_model.html#Model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hydpy.models.q.q_model.Model" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="modeltools.html#hydpy.core.modeltools.AdHocModel" title="hydpy.core.modeltools.AdHocModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">AdHocModel</span></code></a>, <a class="reference internal" href="modeltools.html#hydpy.core.modeltools.SubmodelInterface" title="hydpy.core.modeltools.SubmodelInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubmodelInterface</span></code></a></p>
+<p>The HydPy-Q base model.</p>
+<dl class="simple">
+<dt>The following interface methods are available to main models using the defined model as a submodel:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#hydpy.models.q.q_model.Calculate_Discharge_V1" title="hydpy.models.q.q_model.Calculate_Discharge_V1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculate_Discharge_V1</span></code></a> Calculate the discharge based on the water depth given in m according to <span id="id2"><a class="reference internal" href="zbibliography.html#id23" title="C. C. Brauer, A. J. Teuling, P. J. J. F. Torfs, and R. Uijlenhoet. The wageningen lowland runoff simulator (walrus): a lumped rainfall–runoff model for catchments with shallow groundwater. Geoscientific Model Development, 7(5):2313–2332, 2014. URL: https://gmd.copernicus.org/articles/7/2313/2014/, doi:10.5194/gmd-7-2313-2014.">Brauer <em>et al.</em> (2014)</a></span> and return it in mm/T.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_model.Model.REUSABLE_METHODS">
+<span class="sig-name descname"><span class="pre">REUSABLE_METHODS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.12)"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="modeltools.html#hydpy.core.modeltools.ReusableMethod" title="hydpy.core.modeltools.ReusableMethod"><span class="pre">ReusableMethod</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#hydpy.models.q.q_model.Model.REUSABLE_METHODS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-hydpy.models.q.q_model">
+<dt class="sig sig-object py" id="hydpy.models.q.q_model.Calculate_Discharge_V1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hydpy.models.q.q_model.</span></span><span class="sig-name descname"><span class="pre">Calculate_Discharge_V1</span></span><a class="reference internal" href="_modules/hydpy/models/q/q_model.html#Calculate_Discharge_V1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hydpy.models.q.q_model.Calculate_Discharge_V1" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="modeltools.html#hydpy.core.modeltools.Method" title="hydpy.core.modeltools.Method"><code class="xref py py-class docutils literal notranslate"><span class="pre">Method</span></code></a></p>
+<p>Calculate the discharge based on the water depth given in m according to
+<span id="id3"><a class="reference internal" href="zbibliography.html#id23" title="C. C. Brauer, A. J. Teuling, P. J. J. F. Torfs, and R. Uijlenhoet. The wageningen lowland runoff simulator (walrus): a lumped rainfall–runoff model for catchments with shallow groundwater. Geoscientific Model Development, 7(5):2313–2332, 2014. URL: https://gmd.copernicus.org/articles/7/2313/2014/, doi:10.5194/gmd-7-2313-2014.">Brauer <em>et al.</em> (2014)</a></span> and return it in mm/T.</p>
+<dl>
+<dt>Requires the control parameters:</dt><dd><p><a class="reference internal" href="#hydpy.models.q.q_control.ChannelDepth" title="hydpy.models.q.q_control.ChannelDepth"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChannelDepth</span></code></a>
+<a class="reference internal" href="#hydpy.models.q.q_control.CrestHeight" title="hydpy.models.q.q_control.CrestHeight"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrestHeight</span></code></a>
+<a class="reference internal" href="#hydpy.models.q.q_control.BankfullDischarge" title="hydpy.models.q.q_control.BankfullDischarge"><code class="xref py py-class docutils literal notranslate"><span class="pre">BankfullDischarge</span></code></a>
+<a class="reference internal" href="#hydpy.models.q.q_control.DischargeExponent" title="hydpy.models.q.q_control.DischargeExponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">DischargeExponent</span></code></a></p>
+</dd>
+<dt>Requires the derived parameter:</dt><dd><p><a class="reference internal" href="#hydpy.models.q.q_derived.CrestHeightRegularisation" title="hydpy.models.q.q_derived.CrestHeightRegularisation"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrestHeightRegularisation</span></code></a></p>
+</dd>
+<dt>Basic equation (discontinuous):</dt><dd><div class="math notranslate nohighlight">
+\[\begin{split}q = q_{max} \cdot \left( \frac{max(h-h_{max}, \ 0)}{h_{max}-h_{min}} \right)^x
+\\ \\
+q = Discharge \\
+q_{max} = BankfullDischarge \\
+h = waterdepth \\
+h_{max} = ChannelDepth \\
+h_{min} = CrestHeight \\
+x = DischargeExponent\end{split}\]</div>
+</dd>
+</dl>
+<p>Examples:</p>
+<blockquote>
+<div><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hydpy.models.q_walrus</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">simulationstep</span><span class="p">(</span><span class="s2">&quot;12h&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parameterstep</span><span class="p">(</span><span class="s2">&quot;1d&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">channeldepth</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crestheight</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bankfulldischarge</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dischargeexponent</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hydpy</span> <span class="kn">import</span> <span class="n">round_</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hs</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.9</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span>
+</pre></div>
+</div>
+<p>Without smoothing:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crestheighttolerance</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">derived</span><span class="o">.</span><span class="n">crestheightregularisation</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hs</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">round_</span><span class="p">([</span><span class="n">h</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">calculate_discharge_v1</span><span class="p">(</span><span class="n">h</span><span class="p">)])</span>
+<span class="go">1.0, 0.0</span>
+<span class="go">1.9, 0.0</span>
+<span class="go">2.0, 0.0</span>
+<span class="go">2.1, 0.001111</span>
+<span class="go">3.0, 0.111111</span>
+<span class="go">4.0, 0.444444</span>
+<span class="go">5.0, 1.0</span>
+<span class="go">6.0, 1.777778</span>
+<span class="go">7.0, 2.777778</span>
+<span class="go">8.0, 4.0</span>
+</pre></div>
+</div>
+<p>Without smooting:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crestheighttolerance</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">derived</span><span class="o">.</span><span class="n">crestheightregularisation</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hs</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">round_</span><span class="p">([</span><span class="n">h</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">calculate_discharge_v1</span><span class="p">(</span><span class="n">h</span><span class="p">)])</span>
+<span class="go">1.0, 0.0</span>
+<span class="go">1.9, 0.0</span>
+<span class="go">2.0, 0.00001</span>
+<span class="go">2.1, 0.001111</span>
+<span class="go">3.0, 0.111111</span>
+<span class="go">4.0, 0.444444</span>
+<span class="go">5.0, 1.0</span>
+<span class="go">6.0, 1.777778</span>
+<span class="go">7.0, 2.777778</span>
+<span class="go">8.0, 4.0</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hydpy.models.q.q_model.Base_DischargeModel_V2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hydpy.models.q.q_model.</span></span><span class="sig-name descname"><span class="pre">Base_DischargeModel_V2</span></span><a class="reference internal" href="_modules/hydpy/models/q/q_model.html#Base_DischargeModel_V2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hydpy.models.q.q_model.Base_DischargeModel_V2" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dischargeinterfaces.html#hydpy.interfaces.dischargeinterfaces.DischargeModel_V2" title="hydpy.interfaces.dischargeinterfaces.DischargeModel_V2"><code class="xref py py-class docutils literal notranslate"><span class="pre">DischargeModel_V2</span></code></a></p>
+<p>Base class for HydPy-Q models that comply with the <a class="reference internal" href="dischargeinterfaces.html#hydpy.interfaces.dischargeinterfaces.DischargeModel_V2" title="hydpy.interfaces.dischargeinterfaces.DischargeModel_V2"><code class="xref py py-class docutils literal notranslate"><span class="pre">DischargeModel_V2</span></code></a> submodel
+interface.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_model.Base_DischargeModel_V2.prepare_channeldepth">
+<span class="sig-name descname"><span class="pre">prepare_channeldepth</span></span><a class="headerlink" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.prepare_channeldepth" title="Link to this definition">¶</a></dt>
+<dd><p>Set the channel depth in m.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hydpy.models.q_walrus</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parameterstep</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">prepare_channeldepth</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">channeldepth</span>
+<span class="go">channeldepth(2.0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_model.Base_DischargeModel_V2.prepare_tolerance">
+<span class="sig-name descname"><span class="pre">prepare_tolerance</span></span><a class="headerlink" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.prepare_tolerance" title="Link to this definition">¶</a></dt>
+<dd><p>Set the depth-related smoothing parameter in m.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hydpy.models.q_walrus</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parameterstep</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">prepare_tolerance</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crestheighttolerance</span>
+<span class="go">crestheighttolerance(2.0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_model.Base_DischargeModel_V2.REUSABLE_METHODS">
+<span class="sig-name descname"><span class="pre">REUSABLE_METHODS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.12)"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="modeltools.html#hydpy.core.modeltools.ReusableMethod" title="hydpy.core.modeltools.ReusableMethod"><span class="pre">ReusableMethod</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.REUSABLE_METHODS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_model.Base_DischargeModel_V2.preparemethod2arguments">
+<span class="sig-name descname"><span class="pre">preparemethod2arguments</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.preparemethod2arguments" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_model.Base_DischargeModel_V2.cymodel">
+<span class="sig-name descname"><span class="pre">cymodel</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="typingtools.html#hydpy.core.typingtools.CyModelProtocol" title="hydpy.core.typingtools.CyModelProtocol"><span class="pre">CyModelProtocol</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><a class="headerlink" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.cymodel" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_model.Base_DischargeModel_V2.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.Parameters" title="hydpy.core.parametertools.Parameters"><span class="pre">parametertools.Parameters</span></a></em><a class="headerlink" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.parameters" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_model.Base_DischargeModel_V2.sequences">
+<span class="sig-name descname"><span class="pre">sequences</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="sequencetools.html#hydpy.core.sequencetools.Sequences" title="hydpy.core.sequencetools.Sequences"><span class="pre">sequencetools.Sequences</span></a></em><a class="headerlink" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.sequences" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_model.Base_DischargeModel_V2.masks">
+<span class="sig-name descname"><span class="pre">masks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="masktools.html#hydpy.core.masktools.Masks" title="hydpy.core.masktools.Masks"><span class="pre">masktools.Masks</span></a></em><a class="headerlink" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.masks" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_model.Base_DischargeModel_V2.METHOD_GROUPS">
+<span class="sig-name descname"><span class="pre">METHOD_GROUPS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hydpy.models.q.q_model.Base_DischargeModel_V2.METHOD_GROUPS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="parameter-features">
+<h2>Parameter Features<a class="headerlink" href="#parameter-features" title="Link to this heading">¶</a></h2>
+<section id="control-parameters">
+<h3>Control parameters<a class="headerlink" href="#control-parameters" title="Link to this heading">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hydpy.models.q.</span></span><span class="sig-name descname"><span class="pre">ControlParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.Parameters" title="hydpy.core.parametertools.Parameters"><span class="pre">Parameters</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls_fastaccess</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.12)"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.FastAccessParameter" title="hydpy.core.parametertools.FastAccessParameter"><span class="pre">FastAccessParameter</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cymodel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typingtools.html#hydpy.core.typingtools.CyModelProtocol" title="hydpy.core.typingtools.CyModelProtocol"><span class="pre">CyModelProtocol</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <a class="reference internal" href="parametertools.html#hydpy.core.parametertools.SubParameters" title="hydpy.core.parametertools.SubParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubParameters</span></code></a></p>
+<p>Control parameters of model q.</p>
+<dl class="simple">
+<dt>The following classes are selected:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#hydpy.models.q.q_control.ChannelDepth" title="hydpy.models.q.q_control.ChannelDepth"><code class="xref py py-func docutils literal notranslate"><span class="pre">ChannelDepth()</span></code></a> Channel depth [m].</p></li>
+<li><p><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeight" title="hydpy.models.q.q_control.CrestHeight"><code class="xref py py-func docutils literal notranslate"><span class="pre">CrestHeight()</span></code></a> The height of the weir’s crest above the channel bottom [m].</p></li>
+<li><p><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeightTolerance" title="hydpy.models.q.q_control.CrestHeightTolerance"><code class="xref py py-func docutils literal notranslate"><span class="pre">CrestHeightTolerance()</span></code></a> Smoothing parameter related to the difference between the water depth and the crest height [m].</p></li>
+<li><p><a class="reference internal" href="#hydpy.models.q.q_control.BankfullDischarge" title="hydpy.models.q.q_control.BankfullDischarge"><code class="xref py py-func docutils literal notranslate"><span class="pre">BankfullDischarge()</span></code></a> Bankfull discharge [mm/T].</p></li>
+<li><p><a class="reference internal" href="#hydpy.models.q.q_control.DischargeExponent" title="hydpy.models.q.q_control.DischargeExponent"><code class="xref py py-func docutils literal notranslate"><span class="pre">DischargeExponent()</span></code></a> Exponent of the water depth-discharge relation [-].</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class" id="module-hydpy.models.q.q_control">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.ChannelDepth">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hydpy.models.q.q_control.</span></span><span class="sig-name descname"><span class="pre">ChannelDepth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subvars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.SubParameters" title="hydpy.core.parametertools.SubParameters"><span class="pre">SubParameters</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hydpy/models/q/q_control.html#ChannelDepth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hydpy.models.q.q_control.ChannelDepth" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="parametertools.html#hydpy.core.parametertools.Parameter" title="hydpy.core.parametertools.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a></p>
+<p>Channel depth [m].</p>
+<dl class="simple">
+<dt>Required by the method:</dt><dd><p><a class="reference internal" href="#hydpy.models.q.q_model.Calculate_Discharge_V1" title="hydpy.models.q.q_model.Calculate_Discharge_V1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculate_Discharge_V1</span></code></a></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.ChannelDepth.NDIM">
+<span class="sig-name descname"><span class="pre">NDIM</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#hydpy.models.q.q_control.ChannelDepth.NDIM" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.ChannelDepth.TYPE">
+<span class="sig-name descname"><span class="pre">TYPE</span></span><a class="headerlink" href="#hydpy.models.q.q_control.ChannelDepth.TYPE" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.ChannelDepth.TIME">
+<span class="sig-name descname"><span class="pre">TIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#hydpy.models.q.q_control.ChannelDepth.TIME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.ChannelDepth.SPAN">
+<span class="sig-name descname"><span class="pre">SPAN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0.0,</span> <span class="pre">None)</span></em><a class="headerlink" href="#hydpy.models.q.q_control.ChannelDepth.SPAN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.ChannelDepth.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'channeldepth'</span></em><a class="headerlink" href="#hydpy.models.q.q_control.ChannelDepth.name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the variable in lower case letters.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.ChannelDepth.unit">
+<span class="sig-name descname"><span class="pre">unit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'m'</span></em><a class="headerlink" href="#hydpy.models.q.q_control.ChannelDepth.unit" title="Link to this definition">¶</a></dt>
+<dd><p>Unit of the variable.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.CrestHeight">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hydpy.models.q.q_control.</span></span><span class="sig-name descname"><span class="pre">CrestHeight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subvars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.SubParameters" title="hydpy.core.parametertools.SubParameters"><span class="pre">SubParameters</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hydpy/models/q/q_control.html#CrestHeight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hydpy.models.q.q_control.CrestHeight" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="parametertools.html#hydpy.core.parametertools.Parameter" title="hydpy.core.parametertools.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a></p>
+<p>The height of the weir’s crest above the channel bottom [m].</p>
+<dl class="simple">
+<dt>Required by the method:</dt><dd><p><a class="reference internal" href="#hydpy.models.q.q_model.Calculate_Discharge_V1" title="hydpy.models.q.q_model.Calculate_Discharge_V1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculate_Discharge_V1</span></code></a></p>
+</dd>
+</dl>
+<p>Set <a class="reference internal" href="#hydpy.models.q.q_control.CrestHeight" title="hydpy.models.q.q_control.CrestHeight"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrestHeight</span></code></a> to zero for channels without weirs.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.CrestHeight.NDIM">
+<span class="sig-name descname"><span class="pre">NDIM</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#hydpy.models.q.q_control.CrestHeight.NDIM" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.CrestHeight.TYPE">
+<span class="sig-name descname"><span class="pre">TYPE</span></span><a class="headerlink" href="#hydpy.models.q.q_control.CrestHeight.TYPE" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.CrestHeight.TIME">
+<span class="sig-name descname"><span class="pre">TIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#hydpy.models.q.q_control.CrestHeight.TIME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.CrestHeight.SPAN">
+<span class="sig-name descname"><span class="pre">SPAN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0.0,</span> <span class="pre">None)</span></em><a class="headerlink" href="#hydpy.models.q.q_control.CrestHeight.SPAN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.CrestHeight.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'crestheight'</span></em><a class="headerlink" href="#hydpy.models.q.q_control.CrestHeight.name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the variable in lower case letters.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.CrestHeight.unit">
+<span class="sig-name descname"><span class="pre">unit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'m'</span></em><a class="headerlink" href="#hydpy.models.q.q_control.CrestHeight.unit" title="Link to this definition">¶</a></dt>
+<dd><p>Unit of the variable.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.CrestHeightTolerance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hydpy.models.q.q_control.</span></span><span class="sig-name descname"><span class="pre">CrestHeightTolerance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subvars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.SubParameters" title="hydpy.core.parametertools.SubParameters"><span class="pre">SubParameters</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hydpy/models/q/q_control.html#CrestHeightTolerance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hydpy.models.q.q_control.CrestHeightTolerance" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="parametertools.html#hydpy.core.parametertools.Parameter" title="hydpy.core.parametertools.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a></p>
+<p>Smoothing parameter related to the difference between the water depth and the
+crest height [m].</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.CrestHeightTolerance.NDIM">
+<span class="sig-name descname"><span class="pre">NDIM</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#hydpy.models.q.q_control.CrestHeightTolerance.NDIM" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.CrestHeightTolerance.TYPE">
+<span class="sig-name descname"><span class="pre">TYPE</span></span><a class="headerlink" href="#hydpy.models.q.q_control.CrestHeightTolerance.TYPE" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.CrestHeightTolerance.TIME">
+<span class="sig-name descname"><span class="pre">TIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#hydpy.models.q.q_control.CrestHeightTolerance.TIME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.CrestHeightTolerance.SPAN">
+<span class="sig-name descname"><span class="pre">SPAN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0.0,</span> <span class="pre">None)</span></em><a class="headerlink" href="#hydpy.models.q.q_control.CrestHeightTolerance.SPAN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.CrestHeightTolerance.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'crestheighttolerance'</span></em><a class="headerlink" href="#hydpy.models.q.q_control.CrestHeightTolerance.name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the variable in lower case letters.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.CrestHeightTolerance.unit">
+<span class="sig-name descname"><span class="pre">unit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'m'</span></em><a class="headerlink" href="#hydpy.models.q.q_control.CrestHeightTolerance.unit" title="Link to this definition">¶</a></dt>
+<dd><p>Unit of the variable.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.BankfullDischarge">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hydpy.models.q.q_control.</span></span><span class="sig-name descname"><span class="pre">BankfullDischarge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subvars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.SubParameters" title="hydpy.core.parametertools.SubParameters"><span class="pre">SubParameters</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hydpy/models/q/q_control.html#BankfullDischarge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hydpy.models.q.q_control.BankfullDischarge" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="parametertools.html#hydpy.core.parametertools.Parameter" title="hydpy.core.parametertools.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a></p>
+<p>Bankfull discharge [mm/T].</p>
+<dl class="simple">
+<dt>Required by the method:</dt><dd><p><a class="reference internal" href="#hydpy.models.q.q_model.Calculate_Discharge_V1" title="hydpy.models.q.q_model.Calculate_Discharge_V1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculate_Discharge_V1</span></code></a></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.BankfullDischarge.NDIM">
+<span class="sig-name descname"><span class="pre">NDIM</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#hydpy.models.q.q_control.BankfullDischarge.NDIM" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.BankfullDischarge.TYPE">
+<span class="sig-name descname"><span class="pre">TYPE</span></span><a class="headerlink" href="#hydpy.models.q.q_control.BankfullDischarge.TYPE" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.BankfullDischarge.TIME">
+<span class="sig-name descname"><span class="pre">TIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#hydpy.models.q.q_control.BankfullDischarge.TIME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.BankfullDischarge.SPAN">
+<span class="sig-name descname"><span class="pre">SPAN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0.0,</span> <span class="pre">None)</span></em><a class="headerlink" href="#hydpy.models.q.q_control.BankfullDischarge.SPAN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.BankfullDischarge.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'bankfulldischarge'</span></em><a class="headerlink" href="#hydpy.models.q.q_control.BankfullDischarge.name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the variable in lower case letters.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.BankfullDischarge.unit">
+<span class="sig-name descname"><span class="pre">unit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mm/T'</span></em><a class="headerlink" href="#hydpy.models.q.q_control.BankfullDischarge.unit" title="Link to this definition">¶</a></dt>
+<dd><p>Unit of the variable.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.DischargeExponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hydpy.models.q.q_control.</span></span><span class="sig-name descname"><span class="pre">DischargeExponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subvars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.SubParameters" title="hydpy.core.parametertools.SubParameters"><span class="pre">SubParameters</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hydpy/models/q/q_control.html#DischargeExponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hydpy.models.q.q_control.DischargeExponent" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="parametertools.html#hydpy.core.parametertools.Parameter" title="hydpy.core.parametertools.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a></p>
+<p>Exponent of the water depth-discharge relation [-].</p>
+<dl class="simple">
+<dt>Required by the method:</dt><dd><p><a class="reference internal" href="#hydpy.models.q.q_model.Calculate_Discharge_V1" title="hydpy.models.q.q_model.Calculate_Discharge_V1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculate_Discharge_V1</span></code></a></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.DischargeExponent.NDIM">
+<span class="sig-name descname"><span class="pre">NDIM</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#hydpy.models.q.q_control.DischargeExponent.NDIM" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.DischargeExponent.TYPE">
+<span class="sig-name descname"><span class="pre">TYPE</span></span><a class="headerlink" href="#hydpy.models.q.q_control.DischargeExponent.TYPE" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.DischargeExponent.TIME">
+<span class="sig-name descname"><span class="pre">TIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#hydpy.models.q.q_control.DischargeExponent.TIME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.DischargeExponent.SPAN">
+<span class="sig-name descname"><span class="pre">SPAN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0.0,</span> <span class="pre">None)</span></em><a class="headerlink" href="#hydpy.models.q.q_control.DischargeExponent.SPAN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.DischargeExponent.INIT">
+<span class="sig-name descname"><span class="pre">INIT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.5</span></em><a class="headerlink" href="#hydpy.models.q.q_control.DischargeExponent.INIT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.DischargeExponent.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dischargeexponent'</span></em><a class="headerlink" href="#hydpy.models.q.q_control.DischargeExponent.name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the variable in lower case letters.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_control.DischargeExponent.unit">
+<span class="sig-name descname"><span class="pre">unit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'-'</span></em><a class="headerlink" href="#hydpy.models.q.q_control.DischargeExponent.unit" title="Link to this definition">¶</a></dt>
+<dd><p>Unit of the variable.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="derived-parameters">
+<h3>Derived parameters<a class="headerlink" href="#derived-parameters" title="Link to this heading">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hydpy.models.q.</span></span><span class="sig-name descname"><span class="pre">DerivedParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.Parameters" title="hydpy.core.parametertools.Parameters"><span class="pre">Parameters</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls_fastaccess</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.12)"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.FastAccessParameter" title="hydpy.core.parametertools.FastAccessParameter"><span class="pre">FastAccessParameter</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cymodel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typingtools.html#hydpy.core.typingtools.CyModelProtocol" title="hydpy.core.typingtools.CyModelProtocol"><span class="pre">CyModelProtocol</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <a class="reference internal" href="parametertools.html#hydpy.core.parametertools.SubParameters" title="hydpy.core.parametertools.SubParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubParameters</span></code></a></p>
+<p>Derived parameters of model q.</p>
+<dl class="simple">
+<dt>The following classes are selected:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#hydpy.models.q.q_derived.CrestHeightRegularisation" title="hydpy.models.q.q_derived.CrestHeightRegularisation"><code class="xref py py-func docutils literal notranslate"><span class="pre">CrestHeightRegularisation()</span></code></a> Regularisation parameter related to the difference between the water depth and the crest height [m].</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class" id="module-hydpy.models.q.q_derived">
+<dt class="sig sig-object py" id="hydpy.models.q.q_derived.CrestHeightRegularisation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hydpy.models.q.q_derived.</span></span><span class="sig-name descname"><span class="pre">CrestHeightRegularisation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subvars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.SubParameters" title="hydpy.core.parametertools.SubParameters"><span class="pre">SubParameters</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/hydpy/models/q/q_derived.html#CrestHeightRegularisation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hydpy.models.q.q_derived.CrestHeightRegularisation" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="parametertools.html#hydpy.core.parametertools.Parameter" title="hydpy.core.parametertools.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a></p>
+<p>Regularisation parameter related to the difference between the water depth and
+the crest height [m].</p>
+<dl class="simple">
+<dt>Required by the method:</dt><dd><p><a class="reference internal" href="#hydpy.models.q.q_model.Calculate_Discharge_V1" title="hydpy.models.q.q_model.Calculate_Discharge_V1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculate_Discharge_V1</span></code></a></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_derived.CrestHeightRegularisation.NDIM">
+<span class="sig-name descname"><span class="pre">NDIM</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#hydpy.models.q.q_derived.CrestHeightRegularisation.NDIM" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_derived.CrestHeightRegularisation.TYPE">
+<span class="sig-name descname"><span class="pre">TYPE</span></span><a class="headerlink" href="#hydpy.models.q.q_derived.CrestHeightRegularisation.TYPE" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_derived.CrestHeightRegularisation.TIME">
+<span class="sig-name descname"><span class="pre">TIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#hydpy.models.q.q_derived.CrestHeightRegularisation.TIME" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_derived.CrestHeightRegularisation.SPAN">
+<span class="sig-name descname"><span class="pre">SPAN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0.0,</span> <span class="pre">None)</span></em><a class="headerlink" href="#hydpy.models.q.q_derived.CrestHeightRegularisation.SPAN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hydpy.models.q.q_derived.CrestHeightRegularisation.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/hydpy/models/q/q_derived.html#CrestHeightRegularisation.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hydpy.models.q.q_derived.CrestHeightRegularisation.update" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate the smoothing parameter value.</p>
+<p>The documentation on module <a class="reference internal" href="smoothtools.html#module-hydpy.auxs.smoothtools" title="hydpy.auxs.smoothtools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smoothtools</span></code></a> explains the following example in
+some detail:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hydpy.models.q</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hydpy.cythons.smoothutils</span> <span class="kn">import</span> <span class="n">smooth_logistic2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hydpy</span> <span class="kn">import</span> <span class="n">round_</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parameterstep</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crestheighttolerance</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">derived</span><span class="o">.</span><span class="n">crestheightregularisation</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">round_</span><span class="p">(</span><span class="n">smooth_logistic2</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">derived</span><span class="o">.</span><span class="n">crestheightregularisation</span><span class="p">))</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crestheighttolerance</span><span class="p">(</span><span class="mf">0.0025</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">derived</span><span class="o">.</span><span class="n">crestheightregularisation</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">round_</span><span class="p">(</span><span class="n">smooth_logistic2</span><span class="p">(</span><span class="mf">0.0025</span><span class="p">,</span> <span class="n">derived</span><span class="o">.</span><span class="n">crestheightregularisation</span><span class="p">))</span>
+<span class="go">0.00251</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_derived.CrestHeightRegularisation.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'crestheightregularisation'</span></em><a class="headerlink" href="#hydpy.models.q.q_derived.CrestHeightRegularisation.name" title="Link to this definition">¶</a></dt>
+<dd><p>Name of the variable in lower case letters.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hydpy.models.q.q_derived.CrestHeightRegularisation.unit">
+<span class="sig-name descname"><span class="pre">unit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'m'</span></em><a class="headerlink" href="#hydpy.models.q.q_derived.CrestHeightRegularisation.unit" title="Link to this definition">¶</a></dt>
+<dd><p>Unit of the variable.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="hydpy.models.q.ControlParameters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hydpy.models.q.</span></span><span class="sig-name descname"><span class="pre">ControlParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.Parameters" title="hydpy.core.parametertools.Parameters"><span class="pre">Parameters</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls_fastaccess</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.12)"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.FastAccessParameter" title="hydpy.core.parametertools.FastAccessParameter"><span class="pre">FastAccessParameter</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cymodel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typingtools.html#hydpy.core.typingtools.CyModelProtocol" title="hydpy.core.typingtools.CyModelProtocol"><span class="pre">CyModelProtocol</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hydpy.models.q.ControlParameters" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="parametertools.html#hydpy.core.parametertools.SubParameters" title="hydpy.core.parametertools.SubParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubParameters</span></code></a></p>
+<p>Control parameters of model q.</p>
+<dl class="simple">
+<dt>The following classes are selected:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#hydpy.models.q.q_control.ChannelDepth" title="hydpy.models.q.q_control.ChannelDepth"><code class="xref py py-func docutils literal notranslate"><span class="pre">ChannelDepth()</span></code></a> Channel depth [m].</p></li>
+<li><p><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeight" title="hydpy.models.q.q_control.CrestHeight"><code class="xref py py-func docutils literal notranslate"><span class="pre">CrestHeight()</span></code></a> The height of the weir’s crest above the channel bottom [m].</p></li>
+<li><p><a class="reference internal" href="#hydpy.models.q.q_control.CrestHeightTolerance" title="hydpy.models.q.q_control.CrestHeightTolerance"><code class="xref py py-func docutils literal notranslate"><span class="pre">CrestHeightTolerance()</span></code></a> Smoothing parameter related to the difference between the water depth and the crest height [m].</p></li>
+<li><p><a class="reference internal" href="#hydpy.models.q.q_control.BankfullDischarge" title="hydpy.models.q.q_control.BankfullDischarge"><code class="xref py py-func docutils literal notranslate"><span class="pre">BankfullDischarge()</span></code></a> Bankfull discharge [mm/T].</p></li>
+<li><p><a class="reference internal" href="#hydpy.models.q.q_control.DischargeExponent" title="hydpy.models.q.q_control.DischargeExponent"><code class="xref py py-func docutils literal notranslate"><span class="pre">DischargeExponent()</span></code></a> Exponent of the water depth-discharge relation [-].</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hydpy.models.q.DerivedParameters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hydpy.models.q.</span></span><span class="sig-name descname"><span class="pre">DerivedParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.Parameters" title="hydpy.core.parametertools.Parameters"><span class="pre">Parameters</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls_fastaccess</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.12)"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="parametertools.html#hydpy.core.parametertools.FastAccessParameter" title="hydpy.core.parametertools.FastAccessParameter"><span class="pre">FastAccessParameter</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cymodel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typingtools.html#hydpy.core.typingtools.CyModelProtocol" title="hydpy.core.typingtools.CyModelProtocol"><span class="pre">CyModelProtocol</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hydpy.models.q.DerivedParameters" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="parametertools.html#hydpy.core.parametertools.SubParameters" title="hydpy.core.parametertools.SubParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubParameters</span></code></a></p>
+<p>Derived parameters of model q.</p>
+<dl class="simple">
+<dt>The following classes are selected:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#hydpy.models.q.q_derived.CrestHeightRegularisation" title="hydpy.models.q.q_derived.CrestHeightRegularisation"><code class="xref py py-func docutils literal notranslate"><span class="pre">CrestHeightRegularisation()</span></code></a> Regularisation parameter related to the difference between the water depth and the crest height [m].</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="q_walrus.html" title="q_walrus"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="HydPy-Q.html" title="HydPy-Q"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">HydPy 6.0a0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modelcollection.html" >Model Collection</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="HydPy-Q.html" >HydPy-Q</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">q</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, HydPy Developers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+  </body>
+</html>

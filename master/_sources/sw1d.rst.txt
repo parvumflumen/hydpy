@@ -1,0 +1,44 @@
+.. |Calc_DischargeDownstream_V1| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Calc_DischargeDownstream_V1`
+.. |Calc_DischargeUpstream_V1| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Calc_DischargeUpstream_V1`
+.. |Calc_Discharge_V1| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Calc_Discharge_V1`
+.. |Calc_Discharge_V3| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Calc_Discharge_V3`
+.. |Calc_Discharge_V4| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Calc_Discharge_V4`
+.. |Calc_MaxTimeStep_V1| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Calc_MaxTimeStep_V1`
+.. |Calc_MaxTimeStep_V2| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Calc_MaxTimeStep_V2`
+.. |Calc_MaxTimeStep_V3| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Calc_MaxTimeStep_V3`
+.. |Calc_MaxTimeStep_V4| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Calc_MaxTimeStep_V4`
+.. |Calc_NetInflow_V1| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Calc_NetInflow_V1`
+.. |Calc_TimeStep_V1| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Calc_TimeStep_V1`
+.. |Calc_WaterDepth_V1| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Calc_WaterDepth_V1`
+.. |DampingRadius| replace:: :class:`~hydpy.models.sw1d.sw1d_control.DampingRadius`
+.. |DischargeDownstream| replace:: :class:`~hydpy.models.sw1d.sw1d_fluxes.DischargeDownstream`
+.. |DischargeUpstream| replace:: :class:`~hydpy.models.sw1d.sw1d_fluxes.DischargeUpstream`
+.. |Discharge| replace:: :class:`~hydpy.models.sw1d.sw1d_states.Discharge`
+.. |GateHeight| replace:: :class:`~hydpy.models.sw1d.sw1d_control.GateHeight`
+.. |Get_PartialDischargeDownstream_V1| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Get_PartialDischargeDownstream_V1`
+.. |Get_PartialDischargeUpstream_V1| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Get_PartialDischargeUpstream_V1`
+.. |Inflow| replace:: :class:`~hydpy.models.sw1d.sw1d_fluxes.Inflow`
+.. |LengthDownstream| replace:: :class:`~hydpy.models.sw1d.sw1d_control.LengthDownstream`
+.. |LengthUpstream| replace:: :class:`~hydpy.models.sw1d.sw1d_control.LengthUpstream`
+.. |MaxTimeStep| replace:: :class:`~hydpy.models.sw1d.sw1d_factors.MaxTimeStep`
+.. |Outflow| replace:: :class:`~hydpy.models.sw1d.sw1d_fluxes.Outflow`
+.. |Pass_Discharge_V1| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Pass_Discharge_V1`
+.. |RoutingModel_V1| replace:: :class:`~hydpy.interfaces.channelinterfaces.RoutingModel_V1`
+.. |RoutingModel_V2| replace:: :class:`~hydpy.interfaces.channelinterfaces.RoutingModel_V2`
+.. |RoutingModel_V3| replace:: :class:`~hydpy.interfaces.channelinterfaces.RoutingModel_V3`
+.. |StorageModel_V1| replace:: :class:`~hydpy.interfaces.channelinterfaces.StorageModel_V1`
+.. |TargetWaterLevel1| replace:: :class:`~hydpy.models.sw1d.sw1d_control.TargetWaterLevel1`
+.. |TargetWaterLevel2| replace:: :class:`~hydpy.models.sw1d.sw1d_control.TargetWaterLevel2`
+.. |UnitTest| replace:: :class:`~hydpy.core.testtools.UnitTest`
+.. |Update_Discharge_V1| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Update_Discharge_V1`
+.. |Update_Discharge_V2| replace:: :class:`~hydpy.models.sw1d.sw1d_model.Update_Discharge_V2`
+
+.. _sw1d:
+
+sw1d
+====
+
+.. automodule:: hydpy.models.sw1d
+    :members:
+    :show-inheritance:
+    :exclude-members: AsyncIterable, pars, Any, Callable, INLET_METHODS, ForwardRef, ParamSpec, SENDER_METHODS, Collection, Self, fastaccess_new, no_type_check_decorator, SupportsFloat, fastaccess, Awaitable, PART_ODE_METHODS, get_protocol_members, Generic, AideSequences, Annotated, TypeAliasType, get_original_bases, Counter, cast, RUN_METHODS, Text, Union, FrozenSet, Doc, ByteString, AsyncGenerator, Tuple, final, Never, SupportsAbs, Sized, ValuesView, Coroutine, Optional, no_type_check, Required, is_typeddict, FULL_ODE_METHODS, get_type_hints, Iterable, OrderedDict, assert_type, MutableMapping, Unpack, Concatenate, seqs, Iterator, Container, deprecated, BinaryIO, Match, subvars, get_overloads, ChainMap, subpars, DERIVEDPARAMETERS, CONTROLPARAMETERS, subseqs, CLASSES, Hashable, runtime_checkable, Protocol, RESULTSEQUENCES, NamedTuple, is_protocol, overload, assert_never, ContextManager, LiteralString, reveal_type, Sequence, AnyStr, MutableSet, Buffer, SUBMODELINTERFACES, SupportsBytes, get_args, override, IO, ParamSpecArgs, IntVar, List, Dict, Deque, SUBMETHODS, Set, Literal, ReadOnly, MappingView, dataclass_transform, SupportsIndex, AsyncContextManager, ClassVar, Type, SOLVERSEQUENCES, NoReturn, AsyncIterator, fastaccess_old, NotRequired, ADD_METHODS, INTERFACE_METHODS, ItemsView, ParamSpecKwargs, SUBMODELS, AbstractSet, SupportsRound, Generator, SOLVERPARAMETERS, Reversible, TypeVar, TextIO, TypeGuard, Final, LogSequences, RECEIVER_METHODS, Mapping, runtime, Pattern, NewType, SupportsInt, MutableSequence, SupportsComplex, KeysView, OUTLET_METHODS, TypeIs, FIXEDPARAMETERS, DefaultDict, clear_overloads, InputSequences, TypeAlias, REQUIREDSEQUENCES, TYPE_CHECKING, UPDATEDSEQUENCES, TypedDict, get_origin, TypeVarTuple
