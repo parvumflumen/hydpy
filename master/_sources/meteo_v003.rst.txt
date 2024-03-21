@@ -1,0 +1,22 @@
+.. |AngstromConstant| replace:: :class:`~hydpy.models.meteo.meteo_control.AngstromConstant`
+.. |Calc_GlobalRadiation_V2| replace:: :class:`~hydpy.models.meteo.meteo_model.Calc_GlobalRadiation_V2`
+.. |IntegrationTest| replace:: :class:`~hydpy.core.testtools.IntegrationTest`
+.. |LoggedSunshineDuration| replace:: :class:`~hydpy.models.meteo.meteo_logs.LoggedSunshineDuration`
+.. |LoggedUnadjustedGlobalRadiation| replace:: :class:`~hydpy.models.meteo.meteo_logs.LoggedUnadjustedGlobalRadiation`
+.. |Node| replace:: :class:`~hydpy.core.devicetools.Node`
+.. |RadiationModel_V1| replace:: :class:`~hydpy.interfaces.radiationinterfaces.RadiationModel_V1`
+.. |lland_v3| replace:: :mod:`~hydpy.models.lland_v3`
+.. |meteo_v001| replace:: :mod:`~hydpy.models.meteo_v001`
+.. |meteo_v003| replace:: :mod:`~hydpy.models.meteo_v003`
+.. |meteo_factors.PossibleSunshineDuration| replace:: :class:`~hydpy.models.meteo.meteo_factors.PossibleSunshineDuration`
+.. |meteo_fluxes.GlobalRadiation| replace:: :class:`~hydpy.models.meteo.meteo_fluxes.GlobalRadiation`
+
+.. _meteo_v003:
+
+meteo_v003
+==========
+
+.. automodule:: hydpy.models.meteo_v003
+    :members:
+    :show-inheritance:
+    :exclude-members: AsyncIterable, pars, Any, Callable, INLET_METHODS, ForwardRef, ParamSpec, SENDER_METHODS, Collection, Self, fastaccess_new, no_type_check_decorator, SupportsFloat, fastaccess, Awaitable, PART_ODE_METHODS, get_protocol_members, Generic, AideSequences, Annotated, TypeAliasType, get_original_bases, Counter, cast, RUN_METHODS, Text, Union, ReceiverSequences, FrozenSet, Doc, ByteString, AsyncGenerator, Tuple, SenderSequences, final, Never, SupportsAbs, Sized, ValuesView, Coroutine, Optional, no_type_check, Required, is_typeddict, FULL_ODE_METHODS, get_type_hints, Iterable, OrderedDict, assert_type, MutableMapping, Unpack, Concatenate, seqs, Iterator, Container, deprecated, BinaryIO, Match, subvars, get_overloads, ChainMap, subpars, DERIVEDPARAMETERS, CONTROLPARAMETERS, subseqs, CLASSES, Hashable, runtime_checkable, Protocol, RESULTSEQUENCES, NamedTuple, is_protocol, StateSequences, overload, assert_never, ContextManager, LiteralString, reveal_type, Sequence, AnyStr, MutableSet, Buffer, SUBMODELINTERFACES, SupportsBytes, get_args, override, IO, ParamSpecArgs, IntVar, List, Dict, Deque, SUBMETHODS, Set, Literal, ReadOnly, MappingView, dataclass_transform, SupportsIndex, InletSequences, AsyncContextManager, ClassVar, Type, SOLVERSEQUENCES, NoReturn, AsyncIterator, fastaccess_old, NotRequired, ADD_METHODS, INTERFACE_METHODS, ItemsView, ParamSpecKwargs, SUBMODELS, AbstractSet, SupportsRound, Generator, OutletSequences, SOLVERPARAMETERS, Reversible, TypeVar, TextIO, TypeGuard, Final, RECEIVER_METHODS, Mapping, runtime, Pattern, NewType, SupportsInt, MutableSequence, SupportsComplex, KeysView, OUTLET_METHODS, TypeIs, FIXEDPARAMETERS, DefaultDict, clear_overloads, TypeAlias, REQUIREDSEQUENCES, TYPE_CHECKING, UPDATEDSEQUENCES, TypedDict, get_origin, TypeVarTuple
