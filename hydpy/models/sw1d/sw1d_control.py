@@ -193,10 +193,10 @@ class BottomLowWaterThreshold(parametertools.SeasonalParameter):
     NDIM, TYPE, TIME, SPAN = 1, float, None, (None, None)
 
     def trim(self, lower=None, upper=None) -> bool:
-        r"""Trim |BottomLowWaterThreshold| following
-        :math:`BottomLowWaterThreshold \leq UpperLowWaterThreshold` and
-        :math:`BottomLowWaterThreshold \leq BottomHighWaterThreshold` and
-        :math:`BottomLowWaterThreshold \leq UpperHighWaterThreshold`.
+        """Trim |BottomLowWaterThreshold| following
+        :math:`BottomLowWaterThreshold \\leq UpperLowWaterThreshold` and
+        :math:`BottomLowWaterThreshold \\leq BottomHighWaterThreshold` and
+        :math:`BottomLowWaterThreshold \\leq UpperHighWaterThreshold`.
 
         >>> from hydpy import pub, round_
         >>> pub.timegrids = "2000-01-01", "2000-01-06", "1d"
@@ -213,10 +213,15 @@ class BottomLowWaterThreshold(parametertools.SeasonalParameter):
         >>> upperhighwaterthreshold.shape = 1
         >>> upperhighwaterthreshold.values[:5] = 3.0, 2.0, 1.0, 2.0, 3.0
         >>> bottomlowwaterthreshold(2.0)
-        >>> bottomlowwaterthreshold
-        bottomlowwaterthreshold(nan)
         >>> round_(bottomlowwaterthreshold.values[:5])
         1.0, 2.0, 1.0, 2.0, 1.0
+        >>> from hydpy.core.testtools import warn_later
+        >>> with pub.options.warntrim(True), warn_later():
+        ...     bottomlowwaterthreshold
+        bottomlowwaterthreshold(2.0)
+        UserWarning: The "background values" of parameter `bottomlowwaterthreshold` of \
+element `?` have been trimmed but not its time of year-specific values.  Using the \
+latter without modification might result in inconsistencies.
         """
         if upper is None:
             getattr_ = exceptiontools.getattr_
@@ -236,9 +241,9 @@ class UpperLowWaterThreshold(parametertools.SeasonalParameter):
     NDIM, TYPE, TIME, SPAN = 1, float, None, (None, None)
 
     def trim(self, lower=None, upper=None) -> bool:
-        r"""Trim |UpperLowWaterThreshold| following
-        :math:`UpperLowWaterThreshold \geq BottomLowWaterThreshold` and
-        :math:`UpperLowWaterThreshold \leq UpperHighWaterThreshold`.
+        """Trim |UpperLowWaterThreshold| following
+        :math:`UpperLowWaterThreshold \\geq BottomLowWaterThreshold` and
+        :math:`UpperLowWaterThreshold \\leq UpperHighWaterThreshold`.
 
         >>> from hydpy import pub, round_
         >>> pub.timegrids = "2000-01-01", "2000-01-06", "1d"
@@ -253,10 +258,15 @@ class UpperLowWaterThreshold(parametertools.SeasonalParameter):
         >>> upperhighwaterthreshold.shape = 1
         >>> upperhighwaterthreshold.values[:5] = 3.0, 4.0, 5.0, 6.0, 7.0
         >>> upperlowwaterthreshold(4.0)
-        >>> upperlowwaterthreshold
-        upperlowwaterthreshold(nan)
         >>> round_(upperlowwaterthreshold.values[:5])
         3.0, 4.0, 4.0, 4.0, 5.0
+        >>> from hydpy.core.testtools import warn_later
+        >>> with pub.options.warntrim(True), warn_later():
+        ...     upperlowwaterthreshold
+        upperlowwaterthreshold(4.0)
+        UserWarning: The "background values" of parameter `upperlowwaterthreshold` of \
+element `?` have been trimmed but not its time of year-specific values.  Using the \
+latter without modification might result in inconsistencies.
         """
         getattr_ = exceptiontools.getattr_
         if lower is None:
@@ -273,9 +283,9 @@ class BottomHighWaterThreshold(parametertools.SeasonalParameter):
     NDIM, TYPE, TIME, SPAN = 1, float, None, (None, None)
 
     def trim(self, lower=None, upper=None) -> bool:
-        r"""Trim |BottomHighWaterThreshold| following
-        :math:`BottomHighWaterThreshold \geq BottomLowWaterThreshold` and
-        :math:`BottomHighWaterThreshold \leq UpperHighWaterThreshold`.
+        """Trim |BottomHighWaterThreshold| following
+        :math:`BottomHighWaterThreshold \\geq BottomLowWaterThreshold` and
+        :math:`BottomHighWaterThreshold \\leq UpperHighWaterThreshold`.
 
         >>> from hydpy import pub, round_
         >>> pub.timegrids = "2000-01-01", "2000-01-06", "1d"
@@ -290,10 +300,15 @@ class BottomHighWaterThreshold(parametertools.SeasonalParameter):
         >>> upperhighwaterthreshold.shape = 1
         >>> upperhighwaterthreshold.values[:5] = 3.0, 4.0, 5.0, 6.0, 7.0
         >>> bottomhighwaterthreshold(4.0)
-        >>> bottomhighwaterthreshold
-        bottomhighwaterthreshold(nan)
         >>> round_(bottomhighwaterthreshold.values[:5])
         3.0, 4.0, 4.0, 4.0, 5.0
+        >>> from hydpy.core.testtools import warn_later
+        >>> with pub.options.warntrim(True), warn_later():
+        ...     bottomhighwaterthreshold
+        bottomhighwaterthreshold(4.0)
+        UserWarning: The "background values" of parameter `bottomhighwaterthreshold` \
+of element `?` have been trimmed but not its time of year-specific values.  Using the \
+latter without modification might result in inconsistencies.
         """
         getattr_ = exceptiontools.getattr_
         if lower is None:
@@ -310,10 +325,10 @@ class UpperHighWaterThreshold(parametertools.SeasonalParameter):
     NDIM, TYPE, TIME, SPAN = 1, float, None, (None, None)
 
     def trim(self, lower=None, upper=None) -> bool:
-        r"""Trim |UpperHighWaterThreshold| following
-        :math:`UpperHighWaterThreshold \geq BottomLowWaterThreshold` and
-        :math:`UpperHighWaterThreshold \geq UpperLowWaterThreshold` and
-        :math:`UpperHighWaterThreshold \geq BottomHighWaterThreshold`.
+        """Trim |UpperHighWaterThreshold| following
+        :math:`UpperHighWaterThreshold \\geq BottomLowWaterThreshold` and
+        :math:`UpperHighWaterThreshold \\geq UpperLowWaterThreshold` and
+        :math:`UpperHighWaterThreshold \\geq BottomHighWaterThreshold`.
 
         >>> from hydpy import pub, round_
         >>> pub.timegrids = "2000-01-01", "2000-01-06", "1d"
@@ -330,10 +345,15 @@ class UpperHighWaterThreshold(parametertools.SeasonalParameter):
         >>> bottomhighwaterthreshold.shape = 1
         >>> bottomhighwaterthreshold.values[:5] = 3.0, 4.0, 5.0, 4.0, 3.0
         >>> upperhighwaterthreshold(4.0)
-        >>> upperhighwaterthreshold
-        upperhighwaterthreshold(nan)
         >>> round_(upperhighwaterthreshold.values[:5])
         5.0, 4.0, 5.0, 4.0, 5.0
+        >>> from hydpy.core.testtools import warn_later
+        >>> with pub.options.warntrim(True), warn_later():
+        ...     upperhighwaterthreshold
+        upperhighwaterthreshold(4.0)
+        UserWarning: The "background values" of parameter `upperhighwaterthreshold` \
+of element `?` have been trimmed but not its time of year-specific values.  Using the \
+latter without modification might result in inconsistencies.
         """
         if lower is None:
             getattr_ = exceptiontools.getattr_

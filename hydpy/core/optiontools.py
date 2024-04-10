@@ -770,7 +770,7 @@ class Options:
         values.""",
     )
     ellipsis = _OptionPropertyEllipsis(
-        -999,
+        0,
         """Ellipsis points serve to shorten the string representations of iterable 
         HydPy objects containing many entries.  Set a value to define the maximum 
         number of entries before and behind ellipsis points.  Set it to zero to avoid 
@@ -789,12 +789,12 @@ class Options:
         """,
     )
     printprogress = OptionPropertyBool(
-        True,
+        False,
         """A True/False flag for printing information about the progress of some 
         processes to the standard output.""",
     )
     reprdigits = OptionPropertyInt(
-        -1,
+        6,
         """Required precision of string representations of floating point numbers, 
         defined as the minimum number of digits to be reproduced by the string 
         representation (see function |repr_|).""",
@@ -852,7 +852,7 @@ class Options:
         only for good reasons.""",
     )
     usecython = OptionPropertyBool(
-        True,
+        False,
         """A True/False flag for applying cythonized models if possible, which are much 
         faster than pure Python models. """,
     )
@@ -886,12 +886,12 @@ class Options:
         demanded by a node instance is missing.""",
     )
     warnsimulationstep = OptionPropertyBool(
-        True,
+        False,
         """A True/False flag for raising a warning when function |simulationstep| is
         called for the first time directly by the user.""",
     )
     warntrim = OptionPropertyBool(
-        True,
+        False,
         """A True/False flag for raising a warning when a |Variable| object trims its 
         value(s) not to violate certain boundaries.  To cope with the limited precision 
         of floating-point numbers, only those violations beyond a small tolerance value 
