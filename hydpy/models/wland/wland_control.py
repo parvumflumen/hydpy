@@ -150,7 +150,7 @@ class GL(parametertools.Parameter):
 
     NDIM, TYPE, TIME, SPAN = 0, float, None, (None, None)
 
-    def trim(self, lower=None, upper=None):
+    def trim(self, lower=None, upper=None) -> bool:
         r"""Ensure |GL| is above |BL|.
 
         >>> from hydpy.models.wland import *
@@ -167,7 +167,7 @@ class GL(parametertools.Parameter):
         """
         if lower is None:
             lower = exceptiontools.getattr_(self.subpars.bl, "value", None)
-        super().trim(lower, upper)
+        return super().trim(lower, upper)
 
 
 class BL(parametertools.Parameter):
@@ -175,7 +175,7 @@ class BL(parametertools.Parameter):
 
     NDIM, TYPE, TIME, SPAN = 0, float, None, (None, None)
 
-    def trim(self, lower=None, upper=None):
+    def trim(self, lower=None, upper=None) -> bool:
         r"""Ensure |BL| is below |GL|.
 
         >>> from hydpy.models.wland import *
@@ -195,7 +195,7 @@ class BL(parametertools.Parameter):
         """
         if upper is None:
             upper = exceptiontools.getattr_(self.subpars.gl, "value", None)
-        super().trim(lower, upper)
+        return super().trim(lower, upper)
 
 
 class CP(parametertools.Parameter):
@@ -419,7 +419,7 @@ class ThetaS(wland_parameters.SoilParameter):
         CLAY: 0.482,
     }
 
-    def trim(self, lower=None, upper=None):
+    def trim(self, lower=None, upper=None) -> bool:
         r"""Trim |ThetaS| following :math:`1e^{-6} \leq ThetaS \leq 1.0` and,
         if |ThetaR| exists for the relevant application model, also following
         :math:`ThetaR \leq ThetaS`.
@@ -449,7 +449,7 @@ class ThetaS(wland_parameters.SoilParameter):
                 lower = exceptiontools.getattr_(self.subpars.thetar, "value", 1e-6)
             else:
                 lower = 1e-6
-        super().trim(lower, upper)
+        return super().trim(lower, upper)
 
 
 class ThetaR(parametertools.Parameter):
@@ -458,7 +458,7 @@ class ThetaR(parametertools.Parameter):
     NDIM, TYPE, TIME, SPAN = 0, float, None, (1e-6, None)
     INIT = 0.01
 
-    def trim(self, lower=None, upper=None):
+    def trim(self, lower=None, upper=None) -> bool:
         r"""Trim |ThetaR| following :math:`1e^{-6} \leq ThetaR \leq ThetaS`.
 
         >>> from hydpy.models.wland import *
@@ -473,7 +473,7 @@ class ThetaR(parametertools.Parameter):
         """
         if upper is None:
             upper = exceptiontools.getattr_(self.subpars.thetas, "value", None)
-        super().trim(lower, upper)
+        return super().trim(lower, upper)
 
 
 class AC(parametertools.Parameter):  # ToDo: SoilParameter, default values
